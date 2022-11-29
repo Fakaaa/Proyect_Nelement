@@ -5,16 +5,16 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-using ProyectG.Common.Modules.Audio.Objects;
-using ProyectG.Common.Modules.Audio.Data.Sound;
-using ProyectG.Common.Modules.Audio.Data.Music;
-using ProyectG.Common.Modules.Audio.Channels.Music;
-using ProyectG.Common.Modules.Audio.Channels.Sound;
+using ProyectNelement.Common.Modules.Audio.Objects;
+using ProyectNelement.Common.Modules.Audio.Data.Sound;
+using ProyectNelement.Common.Modules.Audio.Data.Music;
+using ProyectNelement.Common.Modules.Audio.Channels.Music;
+using ProyectNelement.Common.Modules.Audio.Channels.Sound;
 
-using ProyectG.Toolbox.Singletons;
-using ProyectG.Toolbox.Pooling;
+using ProyectNelement.Toolbox.Singletons;
+using ProyectNelement.Toolbox.Pooling;
 
-namespace ProyectG.Common.Modules.Audio.Handlers
+namespace ProyectNelement.Common.Modules.Audio.Handlers
 {
     public class AudioHandler : GenericSingleton<AudioHandler>
     {

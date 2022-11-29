@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using ProyectG.Toolbox.Lerpers.Movement;
+using ProyectNelement.Toolbox.Lerpers.Movement;
 
-namespace ProyectG.Toolbox.Camera
+namespace ProyectNelement.Toolbox.Camera
 {
     public class OpenableCamera : MonoBehaviour, IVector2Openable
     {

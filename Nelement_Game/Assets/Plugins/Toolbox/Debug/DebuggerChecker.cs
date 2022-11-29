@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-using ProyectG.Toolbox.Utils.SceneUtils;
+using ProyectNelement.Toolbox.Utils.SceneUtils;
 
-namespace ProyectG.Toolbox.Debugger
+namespace ProyectNelement.Toolbox.Debugger
 {
     public class DebuggerChecker : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ProyectG.Toolbox.Pooling
+namespace ProyectNelement.Toolbox.Pooling
 {
     public class ObjectPool<T> where T : class
     {

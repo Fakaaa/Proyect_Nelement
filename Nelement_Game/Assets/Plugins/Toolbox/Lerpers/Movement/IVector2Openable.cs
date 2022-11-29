@@ -1,4 +1,4 @@
-namespace ProyectG.Toolbox.Lerpers.Movement
+namespace ProyectNelement.Toolbox.Lerpers.Movement
 {
     public interface IVector2Openable
     {

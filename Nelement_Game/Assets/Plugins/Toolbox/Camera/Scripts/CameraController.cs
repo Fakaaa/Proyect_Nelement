@@ -1,8 +1,8 @@
 using UnityEngine;
 
-using ProyectG.Toolbox.Lerpers;
+using ProyectNelement.Toolbox.Lerpers;
 
-namespace ProyectG.Toolbox.Camera
+namespace ProyectNelement.Toolbox.Camera
 {
     public class CameraController : MonoBehaviour
     {

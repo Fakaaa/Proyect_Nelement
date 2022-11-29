@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProyectG.Common.Modules.Audio.Data
+namespace ProyectNelement.Common.Modules.Audio.Data
 {
     [CreateAssetMenu(fileName = "BaseTrackData", menuName = "ScriptableObjects/Base/BaseTrackData", order = 1)]
     [System.Serializable]

@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-using ProyectG.Toolbox.Fill;
+using ProyectNelement.Toolbox.Fill;
 
-namespace ProyectG.Toolbox.Utils.UI
+namespace ProyectNelement.Toolbox.Utils.UI
 {    
     public class SliderFill : AbstractFill
     {

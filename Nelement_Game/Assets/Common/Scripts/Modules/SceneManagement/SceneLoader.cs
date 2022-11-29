@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-using ProyectG.Toolbox.Singletons;
+using ProyectNelement.Toolbox.Singletons;
 
 public class SceneLoader : GenericSingleton<SceneLoader>
 {

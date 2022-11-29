@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHandler : MonoBehaviour
+namespace ProyectNelement.Gameplay.Controllers.Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerHandler : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        #region EXPOSED_FIELDS
+        [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private CapsuleCollider2D collision;
+        #endregion
     }
 }

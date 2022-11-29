@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProyectG.Toolbox.Singletons
+namespace ProyectNelement.Toolbox.Singletons
 {
     public class GenericSingleton<T> : MonoBehaviour where T : Component
     {

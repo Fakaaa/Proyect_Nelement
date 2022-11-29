@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProyectG.Toolbox.Lerpers
+namespace ProyectNelement.Toolbox.Lerpers
 {
     public abstract class AbstractLerper<T>
     {

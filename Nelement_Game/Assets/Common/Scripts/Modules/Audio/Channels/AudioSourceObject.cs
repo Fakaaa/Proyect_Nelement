@@ -1,12 +1,12 @@
 using UnityEngine;
 
-using ProyectG.Common.Modules.Audio.Data;
+using ProyectNelement.Common.Modules.Audio.Data;
 
-using ProyectG.Toolbox.Pooling;
+using ProyectNelement.Toolbox.Pooling;
 using System;
 using UnityEditor;
 
-namespace ProyectG.Common.Modules.Audio.Objects
+namespace ProyectNelement.Common.Modules.Audio.Objects
 {
     public class AudioSourceObject : Pooleable
     {

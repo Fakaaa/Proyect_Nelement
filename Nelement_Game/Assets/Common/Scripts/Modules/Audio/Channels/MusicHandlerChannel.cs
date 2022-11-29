@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ProyectG.Common.Modules.Audio.Channels.Music
+namespace ProyectNelement.Common.Modules.Audio.Channels.Music
 {
     [CreateAssetMenu(fileName = "MusicHandlerChannel", menuName = "ScriptableObjects/Music/Channels/MusicHandlerChannel", order = 2)]
     public class MusicHandlerChannel : ScriptableObject

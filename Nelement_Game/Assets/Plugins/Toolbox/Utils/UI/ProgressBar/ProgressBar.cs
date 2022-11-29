@@ -2,7 +2,7 @@ using UnityEngine;
 
 using TMPro;
 
-namespace ProyectG.Toolbox.Utils.UI.ProgressBar
+namespace ProyectNelement.Toolbox.Utils.UI.ProgressBar
 {
     public class ProgressBar : MonoBehaviour
     {

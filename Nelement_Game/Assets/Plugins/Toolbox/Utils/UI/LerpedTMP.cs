@@ -1,11 +1,11 @@
 using UnityEngine;
 
-using ProyectG.Toolbox.Lerpers;
+using ProyectNelement.Toolbox.Lerpers;
 
 using TMPro;
 
 
-namespace ProyectG.Toolbox.Utils.UI
+namespace ProyectNelement.Toolbox.Utils.UI
 {
     public class LerpedTMP : MonoBehaviour
     {

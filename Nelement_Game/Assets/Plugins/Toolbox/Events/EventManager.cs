@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using ProyectG.Toolbox.Singletons;
+using ProyectNelement.Toolbox.Singletons;
 
-namespace ProyectG.Toolbox.Events
+namespace ProyectNelement.Toolbox.Events
 {
     public class EventManager : GenericSingleton<EventManager>
     {

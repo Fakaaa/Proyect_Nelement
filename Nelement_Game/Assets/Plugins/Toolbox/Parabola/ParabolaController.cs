@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace ProyectG.Toolbox.Parabola
+namespace ProyectNelement.Toolbox.Parabola
 {
     public class ParabolaController : MonoBehaviour
     {

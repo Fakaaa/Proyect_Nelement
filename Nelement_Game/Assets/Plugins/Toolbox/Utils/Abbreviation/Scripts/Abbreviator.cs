@@ -2,7 +2,7 @@
 
 using System.Globalization;
 
-namespace ProyectG.Toolbox.Utils.Abbreviation
+namespace ProyectNelement.Toolbox.Utils.Abbreviation
 {
     public class Abbreviator : MonoBehaviour
     {

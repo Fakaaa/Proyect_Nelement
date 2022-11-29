@@ -1,10 +1,10 @@
 using UnityEngine;
 
-using ProyectG.Toolbox.Singletons;
+using ProyectNelement.Toolbox.Singletons;
 
 using TMPro;
 
-namespace ProyectG.Toolbox.Utils.UI
+namespace ProyectNelement.Toolbox.Utils.UI
 {
     public class ErrorHandler : GenericSingleton<ErrorHandler>
     {

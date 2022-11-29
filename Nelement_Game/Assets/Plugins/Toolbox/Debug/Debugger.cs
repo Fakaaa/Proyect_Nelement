@@ -1,9 +1,9 @@
 using UnityEngine;
 
-using ProyectG.Toolbox.Utils.FpsCounter;
-using ProyectG.Toolbox.Utils.UI;
+using ProyectNelement.Toolbox.Utils.FpsCounter;
+using ProyectNelement.Toolbox.Utils.UI;
 
-namespace ProyectG.Toolbox.Debugger
+namespace ProyectNelement.Toolbox.Debugger
 {
     public class Debugger : MonoBehaviour
     {

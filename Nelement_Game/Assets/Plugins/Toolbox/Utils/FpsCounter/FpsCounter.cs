@@ -2,7 +2,7 @@ using UnityEngine;
 
 using TMPro;
 
-namespace ProyectG.Toolbox.Utils.FpsCounter
+namespace ProyectNelement.Toolbox.Utils.FpsCounter
 {
     public class FpsCounter : MonoBehaviour
     {
