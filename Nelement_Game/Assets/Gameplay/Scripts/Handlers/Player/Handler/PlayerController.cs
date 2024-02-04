@@ -120,7 +120,7 @@ namespace ProyectNelement.Gameplay.Controllers.Player
 
         public bool IsControllerEnable { get { return enable; } }
         #endregion
-        
+
         #region PUBLIC_METHODS
         public void Init()
         {
@@ -131,7 +131,7 @@ namespace ProyectNelement.Gameplay.Controllers.Player
             normalMovementClamp = movementClamp;
         }
         
-        public void Update()
+        public void UpdatePlayer()
         {
             if (!enable)
                 return;
@@ -361,13 +361,6 @@ namespace ProyectNelement.Gameplay.Controllers.Player
         #endregion
 
         #region PUBLIC_METHODS
-        public void ChangeSpeed(bool lowBatteryMode)
-        {
-            acceleration = lowBatteryMode ? 1 : initialAceleration;
-            deAcceleration = lowBatteryMode ? 1 : initialDeAceleration;
-            movementClamp = lowBatteryMode ? 1 : initialMovementClamp;
-        }
-
         public void RestoreSpeed()
         {
             acceleration = normalAcceleration;
