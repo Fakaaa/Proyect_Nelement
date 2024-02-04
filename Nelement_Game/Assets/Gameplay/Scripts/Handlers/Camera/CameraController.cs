@@ -3,7 +3,9 @@ using System.Collections;
 
 using UnityEngine;
 
-namespace ProyectNelement.Gameplay.Controllers
+using ProyectNelement.Gameplay.Controllers.Player;
+
+namespace ProyectNelement.Gameplay.Controllers.GameCamera
 {
     public class CameraController : MonoBehaviour
     {
@@ -12,13 +14,15 @@ namespace ProyectNelement.Gameplay.Controllers
         [SerializeField] private float followSpeed = 0f;
         [SerializeField] private float offsetCamera = 0f;
         [SerializeField] private float offsetHeightCamera = 0f;
-        [SerializeField] private bool initialized = false;
         #endregion
 
         #region PRIVATE_FIELDS
         private Vector3 targetPosition = default;
         private Camera mainCamera = null;
         private bool isAttachedToPlayer = true;
+        private bool initialized = false;
+
+        private PlayerController player = null;
         #endregion
 
         #region PROPERTIES
@@ -35,30 +39,29 @@ namespace ProyectNelement.Gameplay.Controllers
             if (target == null)
                 return;
 
+            float apexFallSpeed = 0;
+            if (player != null)
+            {
+                apexFallSpeed = player.Velocity.y;
+                Debug.Log("Player Y Speed" + apexFallSpeed);
+            }
             targetPosition = new Vector3(target.transform.position.x, target.transform.position.y + offsetHeightCamera, transform.position.z);
-
-            //Filp animation view of player later
-            //if(!target.CustomAnimator._armature.flipX)
-            //{
-            //    targetPosition = new Vector3(targetPosition.x + offsetCamera, targetPosition.y + offsetHeightCamera, targetPosition.z);
-            //}
-            
-            //Filp animation view of player later
-            //if(target.CustomAnimator._armature.flipX)
-            //{
-            //    targetPosition = new Vector3(targetPosition.x - offsetCamera, targetPosition.y + offsetHeightCamera, targetPosition.z);
-            //}
 
             transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
         }
         #endregion
 
         #region PUBLIC_METHODS
-        public void Init(Transform target)
+        public void Init(PlayerController player)
         {
-            this.target = target;
+            target = player.transform;
+            this.player = player;
 
             mainCamera = GetComponent<Camera>();
+
+            ToggleAttachToPlayer(true);
+            
+            initialized = true;
         }
 
         public void MoveCamera(Vector3 worldPosition, Action onMoveEnded = null)
@@ -75,7 +78,7 @@ namespace ProyectNelement.Gameplay.Controllers
         #endregion
 
         #region CORUTINES
-        private IEnumerator LerpToPosition(Vector3 worldPosition, Action onLerpEnded = null)
+        private IEnumerator LerpToPosition(Vector3 worldPosition, Action onComplete = null)
         {
             float minDistance = 0.15f;
 
@@ -88,7 +91,7 @@ namespace ProyectNelement.Gameplay.Controllers
                 yield return null;
             }
 
-            onLerpEnded?.Invoke();
+            onComplete?.Invoke();
         }
         #endregion
     }
