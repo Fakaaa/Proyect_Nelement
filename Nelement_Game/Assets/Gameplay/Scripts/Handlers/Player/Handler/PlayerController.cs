@@ -4,13 +4,16 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+using ProyectNelement.Gameplay.Views.Player;
+
 namespace ProyectNelement.Gameplay.Controllers.Player
 {
     [Serializable]
     public enum LastDirection
     {
         Right,
-        Left
+        Left,
+        None
     }
 
     public struct RayRange
@@ -52,6 +55,7 @@ namespace ProyectNelement.Gameplay.Controllers.Player
         [SerializeField] private float coyoteTimeThreshold = 0;
         [SerializeField] private float jumpBuffer = 0;
         [SerializeField] private float jumpEarlyGravityTreshold = 4;
+        [SerializeField] private float timeToHighFallAnimation = 1f;
         
         [Header("---COLLISION---")]
         [SerializeField] private Bounds characterBounds = default;
@@ -90,10 +94,13 @@ namespace ProyectNelement.Gameplay.Controllers.Player
         private float initialMovementClamp = 0.0f;
 
         private LastDirection lastDirection = default;
+        private PlayerView playerView = null;
 
         private float normalAcceleration;
         private float normalDeAcceleration;
         private float normalMovementClamp;
+
+        private float lastTimeFalling = 0;
         #endregion
         
         #region PROPERTIES
@@ -124,8 +131,15 @@ namespace ProyectNelement.Gameplay.Controllers.Player
         #region PUBLIC_METHODS
         public void Init()
         {
-            enable = true;
-
+            if (TryGetComponent(out PlayerView playerView))
+            {
+                this.playerView = playerView;
+            }
+            else
+            {
+                this.playerView = GetComponentInChildren<PlayerView>();
+            }
+            
             normalAcceleration = acceleration;
             normalDeAcceleration = deAcceleration;
             normalMovementClamp = movementClamp;
@@ -133,7 +147,7 @@ namespace ProyectNelement.Gameplay.Controllers.Player
         
         public void UpdatePlayer()
         {
-            if (!enable)
+            if (!enable || playerView == null)
                 return;
 
             Velocity = (transform.position - lastPosition) / Time.deltaTime;
@@ -183,6 +197,17 @@ namespace ProyectNelement.Gameplay.Controllers.Player
 
             onGround = groundCheck;
 
+            if (!onGround)
+            {
+                lastTimeFalling = Time.time;
+                playerView.JumpLoop();
+            }
+            else
+            {
+                bool highFall = lastTimeFalling > timeToHighFallAnimation;
+                playerView.EndJump(highFall);
+            }
+            
             colTop = RunDetection(upRay);
             colRight = RunDetection(rightRay);
             colLeft = RunDetection(leftRay);
@@ -221,15 +246,22 @@ namespace ProyectNelement.Gameplay.Controllers.Player
                 {
                     lastDirection = LastDirection.Left;
                 }
+                
+                playerView.SetFaceDirection(lastDirection);
             }
             else
             {
                 horizontalSpeed = Mathf.MoveTowards(horizontalSpeed, 0, (deAcceleration / 6f) * Time.deltaTime);
             }
 
+            playerView.TiltView(lastDirection);
+            playerView.SetWalkingState(Mathf.Abs(horizontalSpeed));
+            
             if (horizontalSpeed > 0 && colRight || horizontalSpeed < 0 && colLeft)
             {
                 horizontalSpeed = 0;
+                lastDirection = LastDirection.None;
+                playerView.SetIdleState();
             }
         }
         
@@ -284,6 +316,7 @@ namespace ProyectNelement.Gameplay.Controllers.Player
             if (Input.GetButtonDown("Jump"))
             {
                 lastJumpPressed = Time.time;                
+                playerView.BeginJump();
             }
 
             if (Input.GetButtonDown("Jump") && CanUseCoyote || BufferedJump)
