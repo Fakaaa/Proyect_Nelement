@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace ProyectNelement.Common.Modules.Audio.Data
@@ -11,5 +12,12 @@ namespace ProyectNelement.Common.Modules.Audio.Data
         [Range(0, 1)] public float volume = 0;
         [Range(-3, 3)] public float pitch = 0;
         public bool loop = false;
+    }
+}
+
+namespace ProyectNelement.System
+{
+    public class SerializableAttribute : Attribute
+    {
     }
 }
